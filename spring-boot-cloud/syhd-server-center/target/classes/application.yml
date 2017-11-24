@@ -1,0 +1,25 @@
+ server:  
+   port: 8818
+   
+ spring:
+  application:
+    name: cloud-center
+
+ zuul:  
+  routes:
+    syhd-user-portal:  
+      service-id: uportal
+      path:  syhduser:syhd1234@/uportal/**  
+    syhd-user:  
+      service-id: user  
+      path:   syhduser:syhd1234@/user/**
+    syhd-pay:  
+      service-id:  pay  
+      path:   syhduser:syhd1234@/pay/**
+
+
+
+ eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://syhduser:syhd1234@localhost:8766/eureka/

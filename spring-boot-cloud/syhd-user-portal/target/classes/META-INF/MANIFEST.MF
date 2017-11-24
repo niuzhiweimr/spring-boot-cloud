@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: syhd-user-portal
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.wshouyou
+Build-Jdk: 1.7.0_45
+Built-By: niuzhiwei
+Created-By: Maven Integration for Eclipse
+Implementation-URL: http://projects.spring.io/spring-boot/syhd-user-po
+ rtal/
+

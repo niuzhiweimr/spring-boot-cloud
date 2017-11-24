@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: syhd-server-center
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.wshouyou
+Build-Jdk: 1.7.0_45
+Built-By: niuzhiwei
+Created-By: Maven Integration for Eclipse
+Implementation-URL: https://projects.spring.io/spring-cloud/syhd-serve
+ r-center
+

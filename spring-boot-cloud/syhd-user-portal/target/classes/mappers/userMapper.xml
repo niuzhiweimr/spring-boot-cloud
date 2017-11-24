@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- userMap 组织映射文件 -->
+<mapper namespace="com.syhd.portal.mapper.IUserMapper">
+	<resultMap type="com.syhd.portal.model.UserEbo" id="UserEboMap">
+		<result property="uid" column="uid" jdbcType="INTEGER" javaType="Integer" />
+		<result property="userName" column="user_name" jdbcType="VARCHAR" javaType="String" />
+		<result property="nickName" column="nick_name" jdbcType="VARCHAR" javaType="String" />
+		<result property="password" column="pass_word" jdbcType="VARCHAR" javaType="String" />
+		<result property="email" column="email" jdbcType="VARCHAR" javaType="String" />
+		<result property="mobileNum" column="mobile_num" jdbcType="VARCHAR" javaType="String" />
+		<result property="userType" column="user_type" jdbcType="CHAR" javaType="String" />
+		<result property="status" column="status" jdbcType="CHAR" javaType="String" />
+	</resultMap>
+	
+	<sql id="getUserEbo">
+	SELECT 
+		u.uid,u.user_name,u.nick_name,u.pass_word,u.email,u.mobile_num,u.user_type,u.status
+	FROM
+		t_user AS u
+	</sql>
+	<!-- 通过uid获取userEbo对象 -->
+	<select id="getUserById" resultMap="UserEboMap" flushCache="true" useCache="false" >
+        <include refid="getUserEbo"/>
+        <where>
+        	<if test=" uid >0  ">
+                 u.uid = ${uid}
+          	</if>
+        </where>
+    </select>
+    <!-- 添加一个用户 -->
+    <insert id="addUser" parameterType="com.syhd.portal.model.UserEbo" useGeneratedKeys="true" keyProperty="uid" >
+		INSERT INTO t_user
+		VALUES(
+			0,#{userName},#{nickName},#{password},#{email},#{mobileNum},#{userType},#{status}
+		)
+	</insert>
+</mapper>
